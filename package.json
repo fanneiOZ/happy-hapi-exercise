@@ -1,0 +1,33 @@
+{
+    "name": "happy-hapi-exercise",
+    "private": false,
+    "version": "1.0.0",
+    "main": "app.js",
+    "license": "MIT",
+    "author": "Panya Batphantana <fanneioz@yahoo.co.th>",
+    "type": "module",
+    "dependencies": {
+        "@hapi/hapi": "^20.0.0"
+    },
+    "scripts": {
+        "start:dev": "nodemon app.js localhost 3030",
+        "start": "./node_modules/.bin/babel-node app.js",
+        "test": "jest"
+    },
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-preset-eslatest-node6": "^1.0.1",
+        "babel-eslint": "^10.1.0",
+        "jsdoc": "^3.6.5",
+        "eslint": "^7.7.0",
+        "prettier": "^2.1.1",
+        "jest": "^26.4.2",
+        "eslint-config-airbnb": "^18.2.0",
+        "eslint-plugin-import": "^2.22.0"
+    },
+    "babel": {
+        "presets": [
+            "eslatest-node6"
+        ]
+    }
+}
