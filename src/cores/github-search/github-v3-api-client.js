@@ -22,8 +22,6 @@ export class GitHubV3ApiClient {
     get(url, query = undefined) {
         const config = query ? { params: query } : {}
 
-        console.log(query)
-
         return this.client
             .get(url, config)
             .then(response => response)

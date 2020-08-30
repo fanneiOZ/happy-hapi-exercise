@@ -3,14 +3,8 @@ import { searchRepositories } from '../../cores/github-search/search.service.js'
 
 export class AssignmentTwoController extends Controller {
     async handle(req) {
-        try {
-            const { query } = req
-            const pageToken = query.pageToken ? query.pageToken : undefined
+        const { token } = req.query
 
-            return await searchRepositories(pageToken)
-        } catch (e) {
-            console.log(e)
-            throw e
-        }
+        return await searchRepositories(token)
     }
 }

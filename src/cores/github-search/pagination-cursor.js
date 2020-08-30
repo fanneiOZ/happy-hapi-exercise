@@ -56,9 +56,9 @@ export class PaginationCursor {
  * @return {PaginationCursor}
  */
 export function decodeToken(token) {
-    const payload = atob(token)
     try {
-        return new PaginationCursor(...payload)
+        const payload = JSON.parse(atob(token))
+        return new PaginationCursor(payload.page, payload.perPage, payload.query, payload.sort)
     } catch (e) {
         throw new HttpException(400, 'Invalid pagination cursor')
     }
@@ -69,5 +69,5 @@ export function decodeToken(token) {
  * @return {*}
  */
 export function encodeToken(cursor) {
-    return btoa(cursor.toJSON())
+    return btoa(JSON.stringify(cursor))
 }

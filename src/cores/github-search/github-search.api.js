@@ -12,7 +12,9 @@ export class GitHubSearchApi {
      * @return {{repositories: [], nextToken: string}}
      */
     async searchRepositories(token = undefined) {
-        const cursor = token ? decodeToken(token) : new PaginationCursor(1, 10, 'nodejs', 'ASC')
+        const cursor = token
+            ? decodeToken(token)
+            : new PaginationCursor(1, 10, 'nodejs in:name', 'ASC')
         const response = await this.api.get('/search/repositories', cursor.toRequestParams())
         const { items: repositories } = response.data
 
