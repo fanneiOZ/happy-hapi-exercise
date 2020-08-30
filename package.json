@@ -14,9 +14,10 @@
     },
     "scripts": {
         "start": "node --experimental-vm-modules app.js",
-        "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+        "test": "node --experimental-vm-modules --unhandled-rejections=strict node_modules/jest/bin/jest.js"
     },
     "devDependencies": {
+        "@jest/globals": "^26.4.2",
         "eslint": "^7.7.0",
         "eslint-config-airbnb": "^18.2.0",
         "eslint-plugin-import": "^2.22.0",

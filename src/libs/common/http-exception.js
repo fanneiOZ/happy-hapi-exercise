@@ -18,7 +18,7 @@ export class HttpException extends Error {
     constructor(code, message = undefined) {
         super(message ?? 'Http exception')
         this.code = code
-        this.message = super.message
+        this.message = message ?? 'Http exception'
     }
 
     /**

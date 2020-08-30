@@ -17,6 +17,7 @@
         "class-methods-use-this": "off",
         "import/prefer-default-export": "off",
         "arrow-parens": "off",
-        "import/extensions": "off"
+        "import/extensions": "off",
+        "object-curly-newline": "off"
     }
 }
