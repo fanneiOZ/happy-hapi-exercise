@@ -16,13 +16,10 @@ export class Route {
     }
 
     /**
-     * @param {Controller} handler
+     * @param {function} handler
      * @return {Route}
      */
     setHandler(handler) {
-        /**
-         * @type {Controller}
-         */
         this.handler = handler
 
         return this

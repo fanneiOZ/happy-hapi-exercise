@@ -1,11 +1,11 @@
-import { HierarchyTransformerService } from '../../../src/cores/hierarchy-transformer/hierarchy-transformer.service.js'
+import { extractChildren } from '../../../src/cores/hierarchy-transformer/transformer.service.js'
 
 describe('Hierarchy transformer services', () => {
-    describe('getChildren', () => {
+    describe('extractChildren', () => {
         test('Should return empty list of children when node is undefined', () => {
             const givenNodeMap = new Map()
 
-            const output = new HierarchyTransformerService().getChildren(givenNodeMap, 1)
+            const output = extractChildren(givenNodeMap, 1)
 
             expect(output).toHaveLength(0)
         })
@@ -14,7 +14,7 @@ describe('Hierarchy transformer services', () => {
             const expectedOutput = [{ id: 'children2', children: [] }]
             const givenNodeMap = new Map().set(1, [{ id: 'children2', children: [] }])
 
-            const output = new HierarchyTransformerService().getChildren(givenNodeMap, 1)
+            const output = extractChildren(givenNodeMap, 1)
 
             expect(output).toStrictEqual(expectedOutput)
         })

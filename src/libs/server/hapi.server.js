@@ -19,13 +19,10 @@ export default class HapiServer {
      */
     registerRoutes(routes) {
         routes.forEach(route => {
-            const { handler } = route
-
             this.server.route({
                 method: route.method,
                 path: route.path,
-                // eslint-disable-next-line new-cap
-                handler: new handler().handle,
+                handler: route.handler,
             })
         })
 
