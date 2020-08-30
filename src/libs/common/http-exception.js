@@ -1,7 +1,7 @@
 /**
  * Http exception class
  */
-export class HttpException {
+export class HttpException extends Error {
     /**
      *
      * @param {Error} e - Error subclass
@@ -16,8 +16,9 @@ export class HttpException {
      * @param {string} message - error message
      */
     constructor(code, message = undefined) {
+        super(message ?? 'Http exception')
         this.code = code
-        this.message = message ?? 'Http exception'
+        this.message = super.message
     }
 
     /**

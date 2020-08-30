@@ -8,7 +8,9 @@
     "type": "module",
     "dependencies": {
         "@hapi/hapi": "^20.0.0",
+        "atob": "^2.1.2",
         "axios": "^0.20.0",
+        "btoa": "^1.2.1",
         "inversify": "^5.0.1",
         "reflect-metadata": "^0.1.13"
     },
