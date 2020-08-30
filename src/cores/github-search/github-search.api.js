@@ -18,6 +18,10 @@ export class GitHubSearchApi {
         const response = await this.api.get('/search/repositories', cursor.toRequestParams())
         const { items: repositories } = response.data
 
+        if (repositories.length === 0) {
+            cursor.end()
+        }
+
         return {
             repositories,
             nextToken: encodeToken(cursor.nextPage()),

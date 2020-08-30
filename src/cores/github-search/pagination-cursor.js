@@ -8,7 +8,7 @@ export class PaginationCursor {
      * @param {number} page
      * @param {number} perPage
      * @param {string} query
-     * @param sort
+     * @param {'ASC' | 'DESC'} sort
      */
     constructor(page, perPage, query, sort) {
         this.page = page
@@ -18,19 +18,28 @@ export class PaginationCursor {
     }
 
     /**
-     * @return {{nextPage: number, query: string, sort: *}}
+     * @return {{
+     *      perPage: number,
+     *      lastPage: boolean,
+     *      query: string,
+     *      page: number,
+     *      sort: ("ASC"|"DESC")
+     * } | undefined}
      */
     toJSON() {
-        return {
+        const data = {
             page: this.page,
             perPage: this.perPage,
             query: this.query,
             sort: this.sort,
+            lastPage: this.lastPage,
         }
+
+        return !this.lastPage ? data : undefined
     }
 
     /**
-     * @return {{next_page: number, q: string, sort: *}}
+     * @return {{next_page: number, q: string, sort: string}}
      */
     toRequestParams() {
         return {
@@ -45,7 +54,17 @@ export class PaginationCursor {
      * @return {PaginationCursor}
      */
     nextPage() {
-        this.page += 1
+        this.page += this.lastPage ? 0 : 1
+
+        return this
+    }
+
+    /**
+     * End the cursor
+     * @return {PaginationCursor}
+     */
+    end() {
+        this.lastPage = true
 
         return this
     }
@@ -54,6 +73,7 @@ export class PaginationCursor {
 /**
  * @param {string} token
  * @return {PaginationCursor}
+ * @throws HttpException
  */
 export function decodeToken(token) {
     try {
@@ -66,8 +86,8 @@ export function decodeToken(token) {
 
 /**
  * @param {PaginationCursor} cursor
- * @return {*}
+ * @return {*|undefined}
  */
 export function encodeToken(cursor) {
-    return btoa(JSON.stringify(cursor))
+    return cursor ? btoa(JSON.stringify(cursor)) : undefined
 }
