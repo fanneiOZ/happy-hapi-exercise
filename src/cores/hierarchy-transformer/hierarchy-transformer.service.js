@@ -39,7 +39,7 @@ export class HierarchyTransformerService {
     /**
      * @access private
      * @param {Map} nodeMap
-     * @param {string} id
+     * @param {number} id
      * @return {[] | undefined}
      */
     getChildren(nodeMap, id) {

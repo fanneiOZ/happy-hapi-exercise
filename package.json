@@ -14,23 +14,21 @@
     },
     "scripts": {
         "start:dev": "nodemon app.js localhost 3030",
-        "start": "./node_modules/.bin/babel-node app.js",
-        "test": "jest"
+        "start": "node --experimental-vm-modules app.js",
+        "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
     },
     "devDependencies": {
+        "@babel/core": "^7.11.4",
+        "@babel/preset-env": "^7.11.0",
         "babel-cli": "^6.26.0",
-        "babel-preset-eslatest-node6": "^1.0.1",
         "babel-eslint": "^10.1.0",
-        "jsdoc": "^3.6.5",
+        "babel-jest": "^26.3.0",
+        "babel-preset-eslatest-node6": "^1.0.1",
         "eslint": "^7.7.0",
-        "prettier": "^2.1.1",
-        "jest": "^26.4.2",
         "eslint-config-airbnb": "^18.2.0",
-        "eslint-plugin-import": "^2.22.0"
-    },
-    "babel": {
-        "presets": [
-            "eslatest-node6"
-        ]
+        "eslint-plugin-import": "^2.22.0",
+        "jest": "^26.4.2",
+        "jsdoc": "^3.6.5",
+        "prettier": "^2.1.1"
     }
 }

@@ -1,4 +1,5 @@
-module.exports = {
+export default {
+    transform: {},
     automock: false,
 
     clearMocks: true,
@@ -21,12 +22,11 @@ module.exports = {
     notify: true,
 
     // The root directory that Jest should scan for tests and modules within
-    rootDir: 'src',
 
     // Allows you to use a custom runner instead of Jest's default test runner
 
     // The test environment that will be used for testing
-    testEnvironment: 'node',
+    testEnvironment: 'jest-environment-node',
 
     // The glob patterns Jest uses to detect test files
     testMatch: ['**/tests/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[tj]s?(x)'],

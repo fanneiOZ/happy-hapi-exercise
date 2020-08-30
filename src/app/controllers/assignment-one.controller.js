@@ -1,7 +1,7 @@
-import { Controller } from '../../libs/common/controller'
+import { Controller } from '../../libs/common/controller.js'
 import {
     HierarchyTransformerService,
-} from '../../cores/hierarchy-transformer/hierarchy-transformer.service'
+} from '../../cores/hierarchy-transformer/hierarchy-transformer.service.js'
 
 export class AssignmentOneController extends Controller {
     async handle(req) {

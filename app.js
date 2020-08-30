@@ -1,5 +1,5 @@
-import HapiServer from './src/libs/server/hapi-server'
-import assignmentRoutes from './src/app/controllers/routes'
+import HapiServer from './src/libs/server/hapi-server.js'
+import assignmentRoutes from './src/app/controllers/routes.js'
 
 const server = new HapiServer()
 
