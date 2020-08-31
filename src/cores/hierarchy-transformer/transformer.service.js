@@ -3,7 +3,7 @@
  * @param {number} id
  * @return {[] | undefined}
  */
-export function extractChildren(nodeMap, id) {
+function extractChildren(nodeMap, id) {
     const nodeChildren = nodeMap.get(id)
     if (!nodeChildren) return []
 
@@ -18,7 +18,7 @@ export function extractChildren(nodeMap, id) {
  * @param payload
  * @return {{level: *, children: *[]|undefined, parent_id: *, id: *, title: *}[]}
  */
-export function transformHierarchy(payload) {
+function transformHierarchy(payload) {
     const nodeMap = new Map()
     const nodes = []
     const roots = []
@@ -41,3 +41,10 @@ export function transformHierarchy(payload) {
         parent_id: root.parent_id,
     }))
 }
+
+const transformerService = {
+    extractChildren,
+    transformHierarchy,
+}
+
+export default transformerService

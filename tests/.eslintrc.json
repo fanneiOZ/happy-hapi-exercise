@@ -6,7 +6,6 @@
     },
     "extends": ["airbnb-base"],
     "plugins": ["import"],
-    "parser": "babel-eslint",
     "rules": {
         "indent": ["error", 4],
         "no-warning-comments": "off",

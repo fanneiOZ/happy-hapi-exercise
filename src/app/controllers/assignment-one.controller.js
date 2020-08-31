@@ -1,7 +1,7 @@
-import { transformHierarchy } from '../../cores/hierarchy-transformer/transformer.service.js'
+import transformerService from '../../cores/hierarchy-transformer/transformer.service.js'
 
 export function assignmentOneController(req) {
     const { payload } = req
 
-    return transformHierarchy(payload)
+    return transformerService.transformHierarchy(payload)
 }

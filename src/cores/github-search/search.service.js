@@ -7,6 +7,12 @@ const searchApi = new GitHubSearchApi(apiClient)
 /**
  * @param {string | undefined} token
  */
-export function searchRepositories(token) {
+function searchRepositories(token) {
     return searchApi.searchRepositories(token)
 }
+
+const searchService = {
+    searchRepositories,
+}
+
+export default searchService

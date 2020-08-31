@@ -91,3 +91,8 @@ export function decodeToken(token) {
 export function encodeToken(cursor) {
     return cursor ? btoa(JSON.stringify(cursor)) : undefined
 }
+
+export const tokenHelper = {
+    encodeToken,
+    decodeToken,
+}

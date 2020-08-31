@@ -1,14 +1,11 @@
-import {
-    extractChildren,
-    transformHierarchy,
-} from '../../../src/cores/hierarchy-transformer/transformer.service.js'
+import transformerService from '../../../src/cores/hierarchy-transformer/transformer.service.js'
 
 describe('Hierarchy transformer services', () => {
     describe('extractChildren', () => {
         test('Should return empty list of children when node is undefined', () => {
             const givenNodeMap = new Map()
 
-            const output = extractChildren(givenNodeMap, 1)
+            const output = transformerService.extractChildren(givenNodeMap, 1)
 
             expect(output).toHaveLength(0)
         })
@@ -17,7 +14,7 @@ describe('Hierarchy transformer services', () => {
             const expectedOutput = [{ id: 'children2', children: [] }]
             const givenNodeMap = new Map().set(1, [{ id: 'children2', children: [] }])
 
-            const output = extractChildren(givenNodeMap, 1)
+            const output = transformerService.extractChildren(givenNodeMap, 1)
 
             expect(output).toStrictEqual(expectedOutput)
         })
@@ -31,7 +28,7 @@ describe('Hierarchy transformer services', () => {
                 .set(2, [{ id: 3, children: [{ id: 4, children: [] }] }])
                 .set(3, [{ id: 4, children: [] }])
 
-            const output = extractChildren(givenNodeMap, 1)
+            const output = transformerService.extractChildren(givenNodeMap, 1)
 
             expect(output).toStrictEqual(expectedOutput)
         })
@@ -107,7 +104,7 @@ describe('Hierarchy transformer services', () => {
                 },
             ]
 
-            const output = transformHierarchy(payload)
+            const output = transformerService.transformHierarchy(payload)
 
             expect(output).toStrictEqual(expectedOutput)
         })
