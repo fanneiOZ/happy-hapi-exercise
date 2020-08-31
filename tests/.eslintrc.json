@@ -17,6 +17,7 @@
         "import/prefer-default-export": "off",
         "arrow-parens": "off",
         "import/extensions": "off",
-        "no-undef": "off"
+        "no-undef": "off",
+        "import/named": "off"
     }
 }
