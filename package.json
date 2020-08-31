@@ -14,7 +14,7 @@
     },
     "scripts": {
         "start": "node --experimental-vm-modules app.js",
-        "test": "node --experimental-vm-modules --unhandled-rejections=strict node_modules/jest/bin/jest.js"
+        "test": "node --experimental-vm-modules --unhandled-rejections=strict node_modules/jest/bin/jest.js --coverage --silent"
     },
     "devDependencies": {
         "@jest/globals": "^26.4.2",
