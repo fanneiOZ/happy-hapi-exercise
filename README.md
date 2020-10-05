@@ -14,3 +14,5 @@ yarn run start
 ```
 
 It's ready to go!!! 🎉
+
+Compatible with play.js
